@@ -5,7 +5,8 @@ const withFastTrackedOrder =
   (BaseUserComponent) =>
   ({ isFastTracked, customer }) => {
     const [fastTracker, setFastTracker] = useState(isFastTracked);
-    const baseElements = (
+    
+    return (
       <BaseUserComponent customer={customer}>
         <div>
           <button
@@ -19,11 +20,10 @@ const withFastTrackedOrder =
         </div>
       </BaseUserComponent>
     );
-    return baseElements;
   };
 
 const HocExample = () => {
-  const customer = {
+  const customerA = {
     name: "Company A",
     address: "720 Kennedy Rd",
     total: 1000,
@@ -32,14 +32,13 @@ const HocExample = () => {
     name: "Company B",
     address: "410 Ramsy St",
     total: 1000,
-    isEligible: true,
-    isFastTracked: false,
+    isFastTracked: true
   };
 
   const FastOrder = withFastTrackedOrder(OrderReport);
   return (
     <div>
-      <OrderReport customer={customer} />
+      <OrderReport customer={customerA} />
       <FastOrder customer={customerB} />
     </div>
   );
