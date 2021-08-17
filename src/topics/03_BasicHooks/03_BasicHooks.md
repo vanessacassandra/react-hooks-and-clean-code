@@ -1,4 +1,3 @@
-
 ## useState
 
 `useState` is used to manage local state. It takes in the initial state as the argument, and returns a pair of values: the current state and a function that updates it.
@@ -29,7 +28,7 @@ const [value, setValue] = useState(expensiveComputation);
 
 Expensive computation above will only be called one time when the component is rendered for the first time. This is called lazy initialization.
 
-If the new state depends on the previous state, pass in a callback function in the state updater. 
+If the new state depends on the previous state, pass in a callback function in the state updater.
 
 ```jsx
 const [value, setValue] = useState(true);
@@ -76,6 +75,7 @@ useEffect(() => {
 ```
 
 ### React Hooks Flow
+
 ![Hooks Flow](https://raw.githubusercontent.com/donavon/hook-flow/master/hook-flow.png)
 [Source](https://raw.githubusercontent.com/donavon/hook-flow/master/hook-flow.png)
 
@@ -107,4 +107,7 @@ const App = () => {
 ```
 
 ## Further readings
+
+- [React's Official Guide on Hooks](https://reactjs.org/docs/hooks-intro.html)
+- [Myths about useEffect](https://epicreact.dev/myths-about-useeffect/)
 - [The Complete Guide to useRef() and Refs in React](https://dmitripavlutin.com/react-useref-guide/)
