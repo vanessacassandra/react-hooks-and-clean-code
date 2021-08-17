@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 
-const Accordion = ({ children, defaultExpanded }) => {
-  const [activeItem, setActiveItem] = useState(defaultExpanded);
+import styled from "styled-components";
+const AccordionItem = styled.div`
+  padding: 5px;
+  border: solid 1px black;
+  cursor: pointer;
+`;
+
+const Accordion = ({ options }) => {
+  const [activeItem, setActiveItem] = useState();
 
   const setToggle = (value) => {
     if (activeItem === value) {
@@ -11,8 +18,15 @@ const Accordion = ({ children, defaultExpanded }) => {
     }
   };
 
-  return React.Children.map(children, (child) =>
-    React.cloneElement(child, { activeItem, setToggle })
+  return (
+    <div>
+      {options.map((option) => (
+        <AccordionItem key={option.title}>
+          <div onClick={() => setToggle(option)}>{option.title}</div>
+          {activeItem === option && <div>{option.details}</div>}
+        </AccordionItem>
+      ))}
+    </div>
   );
 };
 

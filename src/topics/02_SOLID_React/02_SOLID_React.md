@@ -112,7 +112,7 @@ const App = () => {
     {title: 'Item 2', details: 'This is the details of item 2'}
   ];
 
-  return (<Accordion options={options}>)
+  return (<Accordion options={options} />)
 }
 ```
 

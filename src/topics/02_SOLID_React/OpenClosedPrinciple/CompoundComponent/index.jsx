@@ -1,16 +1,12 @@
 import Accordion from "./Accordion";
-import AccordionItem from "./AccordionItem";
 
 const CompoundComponent = () => {
-  return (
-    <>
-      <Accordion defaultExpanded="item1">
-        <AccordionItem value="item1">Item 1</AccordionItem>
-        <AccordionItem value="item2">Item 2</AccordionItem>
-        <AccordionItem value="item3">Item 3</AccordionItem>
-      </Accordion>
-    </>
-  );
+  const options = [
+    { title: "Item 1", details: "This is the details of item 1" },
+    { title: "Item 2", details: "This is the details of item 2" },
+  ];
+
+  return <Accordion options={options} defaultExpanded={1}/>;
 };
 
 export default CompoundComponent;
