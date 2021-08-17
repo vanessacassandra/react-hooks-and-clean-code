@@ -18,8 +18,11 @@ const UseStateExample = () => {
 
   return (
     <>
-      <span>Value: {value} </span>
-      <button onClick={increment}>Increment</button>
+      <small>src/topics/03_BasicHooks/UseStateExample/index.js</small>
+      <div>
+        <span>Value: {value} </span>
+        <button onClick={increment}>Increment</button>
+      </div>
     </>
   );
 };
