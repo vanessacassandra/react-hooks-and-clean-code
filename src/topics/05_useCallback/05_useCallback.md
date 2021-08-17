@@ -101,3 +101,4 @@ function App() {
 - [When to use useMemo and useCallback](https://kentcdodds.com/blog/usememo-and-usecallback)
 - [Memoization and React](https://epicreact.dev/memoization-and-react)
 - [Your Guide to React.useCallback()](https://dmitripavlutin.com/dont-overuse-react-usecallback)
+- [Is it safe to omit functions from the list of dependencies?](https://reactjs.org/docs/hooks-faq.html#is-it-safe-to-omit-functions-from-the-list-of-dependencies)
