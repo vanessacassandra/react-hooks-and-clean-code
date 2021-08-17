@@ -3,10 +3,12 @@
 ## When to use useCallback?
 
 When do we need to memoize function?
+
 - When pasing function to memoized children (React.memo)
 - When passing function to useEffect dependencies
 
 ### Passing function to memoized children
+
 For example, let's say we have a memoized `CalculateFactorial` component. This component takes in two props: `number` and `onClick` function.
 
 ```jsx
@@ -15,7 +17,7 @@ function factorialOf(n) {
   return n <= 0 ? 1 : n * factorialOf(n - 1);
 }
 
-function CalculateFactorial({number, onClick}) {
+function CalculateFactorial({ number, onClick }) {
   const factorial = factorialOf(number);
 
   return (
@@ -34,11 +36,13 @@ export default React.memo(CalculateFactorial);
 ```jsx
 // Bad
 function App() {
-	const [number, setNumber] = useState(0);
-	// logNumber is recreated every render 
-	const logNumber = () => {console.log(`Number: ${number}`)};
+  const [number, setNumber] = useState(0);
+  // logNumber is recreated every render
+  const logNumber = () => {
+    console.log(`Number: ${number}`);
+  };
 
-	return (<CalculateFactorial number={number} onClick={logNumber} />)
+  return <CalculateFactorial number={number} onClick={logNumber} />;
 }
 ```
 
@@ -49,11 +53,13 @@ To solve this problem, we can memoize `logNumber` function using `useCallback`.
 ```jsx
 // Good
 function App() {
-	const [number, setNumber] = useState(0);
-	// logNumber is memoized
-	const logNumber = useCallback(() => {console.log(`Number: ${number}`)}, [number]);
+  const [number, setNumber] = useState(0);
+  // logNumber is memoized
+  const logNumber = useCallback(() => {
+    console.log(`Number: ${number}`);
+  }, [number]);
 
-	return (<CalculateFactorial number={number} onClick={logNumber} />)
+  return <CalculateFactorial number={number} onClick={logNumber} />;
 }
 ```
 
@@ -64,18 +70,21 @@ When calling a function inside `useEffect`, if you use ESLint, it will ask you t
 ```jsx
 // Bad
 function App() {
-	const [number, setNumber] = useState(0);
+  const [number, setNumber] = useState(0);
 
-	const increment = () => setNumber(n => n+1);
-	const logNumber = () => {console.log(`Number: ${number}`)}
+  const increment = () => setNumber((n) => n + 1);
+  const logNumber = () => {
+    console.log(`Number: ${number}`);
+  };
 
-	useEffect(() => {
-		logNumber();
-	}, [logNumber])
+  useEffect(() => {
+    logNumber();
+  }, [logNumber]);
 
-	return (<button onClick={increment}>Add</button>)
+  return <button onClick={increment}>Add</button>;
 }
 ```
+
 In the example above, because `logNumber` is recreated every render, `useEffect` will be called every render. If the function called inside the `useEffect` updates the state, it will trigger a re-render, and we will have an infinite loop.
 
 That's why when passing a function as `useEffect` dependency, we can utilize `useCallback` to make sure it is not recreated every render.
@@ -83,18 +92,43 @@ That's why when passing a function as `useEffect` dependency, we can utilize `us
 ```jsx
 // Good
 function App() {
-	const [number, setNumber] = useState(0);
+  const [number, setNumber] = useState(0);
 
-	const increment = () => setNumber(n => n+1);
-	const logNumber = useCallback(() => {console.log(`Number: ${number}`)}, [number]);
+  const increment = () => setNumber((n) => n + 1);
+  const logNumber = useCallback(() => {
+    console.log(`Number: ${number}`);
+  }, [number]);
 
-	useEffect(() => {
-		logNumber();
-	}, [logNumber])
+  useEffect(() => {
+    logNumber();
+  }, [logNumber]);
 
-	return (<button onClick={increment}>Add</button>)
+  return <button onClick={increment}>Add</button>;
 }
 ```
+
+The better way to refactor the above code is to move `logNumber` inside the useEffect, and we do not need to use `useCallback` anymore.
+
+```jsx
+// Good
+function App() {
+  const [number, setNumber] = useState(0);
+
+  const increment = () => setNumber((n) => n + 1);
+
+  useEffect(() => {
+    const logNumber = () => {
+      console.log(`Number: ${number}`);
+    };
+
+    logNumber();
+  }, [number]);
+
+  return <button onClick={increment}>Add</button>;
+}
+```
+
+This is discussed in more details in this [React FAQ](https://reactjs.org/docs/hooks-faq.html#is-it-safe-to-omit-functions-from-the-list-of-dependencies).
 
 ## Further Readings
 
