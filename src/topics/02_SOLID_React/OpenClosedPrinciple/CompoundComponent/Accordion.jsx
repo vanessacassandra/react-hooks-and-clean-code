@@ -20,10 +20,10 @@ const Accordion = ({ options }) => {
 
   return (
     <div>
-      {options.map((option) => (
-        <AccordionItem key={option.title}>
-          <div onClick={() => setToggle(option)}>{option.title}</div>
-          {activeItem === option && <div>{option.details}</div>}
+      {options.map(({ title, details }) => (
+        <AccordionItem key={title}>
+          <div onClick={() => setToggle(title)}>{title}</div>
+          {activeItem === title && <div>{details}</div>}
         </AccordionItem>
       ))}
     </div>
