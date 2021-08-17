@@ -1,11 +1,6 @@
 import React from "react";
 
-interface IUser {
-  name: string;
-  address: string;
-}
-
-const User = ({ name, address }: IUser) => {
+const User = ({ name, address }) => {
   return (
     <div>
       {name}'s address is at {address}

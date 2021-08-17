@@ -1,6 +1,7 @@
 import React from "react";
 
-const PersonalDetails = ({ name, age, address }) => {
+const PersonalDetails = ({ details }) => {
+  const { name, age, address } = details;
   return (
     <>
       <div>Name: {name}</div>
