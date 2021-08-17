@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 
-const Address = ({ address, onAddressChange }) => {
+const Address = () => {
+  const [address, setAddress] = useState("");
+
+  const onAddressChange = (e) => setAddress(e.target.value);
+
   return (
     <div>
       <label htmlFor="address">Address: </label>

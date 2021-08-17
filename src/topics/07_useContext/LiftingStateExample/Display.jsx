@@ -1,9 +1,9 @@
 import React from "react";
 
-const Display = ({ name, address }) => {
+const Display = ({ name }) => {
   return (
     <div>
-      ${name}'s address is at ${address}
+      My name is {name}.
     </div>
   );
 };
