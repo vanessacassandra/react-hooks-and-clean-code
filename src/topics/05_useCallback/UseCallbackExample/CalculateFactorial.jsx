@@ -5,7 +5,7 @@ function factorialOf(n) {
 const CalculateFactorial = ({ number, onChange, onClick }) => {
   const factorial = factorialOf(number);
 
-  console.log("Component rendered");
+  console.log("CalculateFactorial component rendered");
   return (
     <div>
       <span>
