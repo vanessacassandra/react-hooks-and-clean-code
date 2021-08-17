@@ -28,8 +28,8 @@ const Header = styled.header`
   align-items: center;
   box-shadow: 0 0.9px 1.5px -18px rgb(0 0 0 / 2%), 0 2.4px 4.1px -18px rgb(0 0 0 / 4%),
     0 5.7px 9.9px -18px rgb(0 0 0 / 5%), 0 19px 33px -18px rgb(0 0 0 / 7%);
-  position: sticky;
   top: 0;
+  background-color: white;
 `;
 
 const BackButton = styled.button`

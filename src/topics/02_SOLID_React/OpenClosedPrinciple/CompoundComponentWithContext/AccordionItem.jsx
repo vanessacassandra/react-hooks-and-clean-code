@@ -9,13 +9,13 @@ const AccordionContainer = styled.div`
   cursor: pointer;
 `;
 
-const AccordionItem = ({ children, value }) => {
+const AccordionItem = ({ children, title }) => {
   const { activeItem, setToggle } = useContext(AccordionContext);
 
   return (
     <AccordionContainer>
-      <div onClick={() => setToggle(value)}>{children}</div>
-      {activeItem === value && <div>The details for {children}</div>}
+      <div onClick={() => setToggle(title)}>{children}</div>
+      {activeItem === title && <div>The details for {children}</div>}
     </AccordionContainer>
   );
 };
