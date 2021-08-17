@@ -8,7 +8,7 @@ const Display = () => {
   
   return (
     <div>
-      {name}'s address is at {address}
+      My name is {name}. My address is at {address}.
     </div>
   );
 };

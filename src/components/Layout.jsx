@@ -56,7 +56,6 @@ const components = {
     );
   },
   img({ alt, ...props }) {
-    console.log(`props`, props);
     return <img alt={alt} style={{ maxWidth: "500px" }} {...props} />;
   },
 };
