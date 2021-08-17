@@ -97,7 +97,7 @@ Module should be open for extensions and closed for modifications. If someone wa
 
 ### Higher Order Component
 
-One way to extend existing component is by using Higher Order Component (HOC). HOC is a function that returns a component.
+One way to extend existing component is by using Higher Order Component (HOC). HOC is a function that takes in a base component and returns a new component.
 
 ### Compound Component
 

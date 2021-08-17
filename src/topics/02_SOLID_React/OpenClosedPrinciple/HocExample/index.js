@@ -1,25 +1,13 @@
-import React, { useState } from "react";
 import OrderReport from "./OrderReport";
 
-const withFastTrackedOrder =
+const withLogger =
   (BaseUserComponent) =>
-  ({ isFastTracked, customer }) => {
-    const [fastTracker, setFastTracker] = useState(isFastTracked);
-    
-    return (
-      <BaseUserComponent customer={customer}>
-        <div>
-          <button
-            onClick={() => {
-              setFastTracker(!fastTracker);
-            }}
-          >
-            Toggle Tracking
-          </button>
-          {fastTracker ? <span> Fast Tracked Enabled </span> : <span> Not Fast Tracked </span>}
-        </div>
-      </BaseUserComponent>
-    );
+  ({ customer }) => {
+    const logData = () => {
+      console.log(customer);
+    };
+
+    return <BaseUserComponent customer={customer} onClick={logData} />;
   };
 
 const HocExample = () => {
@@ -32,14 +20,13 @@ const HocExample = () => {
     name: "Company B",
     address: "410 Ramsy St",
     total: 1000,
-    isFastTracked: true
   };
 
-  const FastOrder = withFastTrackedOrder(OrderReport);
+  const LoggableOrderReport = withLogger(OrderReport);
   return (
     <div>
       <OrderReport customer={customerA} />
-      <FastOrder customer={customerB} />
+      <LoggableOrderReport customer={customerB} />
     </div>
   );
 };

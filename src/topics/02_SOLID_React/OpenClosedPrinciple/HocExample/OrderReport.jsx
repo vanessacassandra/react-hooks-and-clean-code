@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 const StyledOrderReport = styled.div`
@@ -8,13 +7,12 @@ const StyledOrderReport = styled.div`
   flex-direction: column;
 `;
 
-const OrderReport = ({ customer: { name, address, total }, children }) => {
+const OrderReport = ({ customer: { name, address, total }, onClick }) => {
   return (
-    <StyledOrderReport>
+    <StyledOrderReport onClick={onClick}>
       <p>{name}</p>
       <span>{address}</span>
       <span>Orders: {total}</span>
-      {children}
     </StyledOrderReport>
   );
 };
