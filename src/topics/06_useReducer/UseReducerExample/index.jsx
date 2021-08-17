@@ -51,15 +51,18 @@ const UseReducerExample = () => {
       });
   };
 
-  const {isLoading, data, error} = state;
-  
+  const { isLoading, data, error } = state;
+
   return (
-    <div>
-      <p>Loading: {String(isLoading)}</p>
-      <p>Data: {JSON.stringify(data)}</p>
-      <p>Error: {String(error)}</p>
-      <button onClick={fetchData}>Fetching new data</button>
-    </div>
+    <>
+      <small>src/topics/06_useReducer/UseReducerExample/index.js</small>
+      <div>
+        <p>Loading: {String(isLoading)}</p>
+        <p>Data: {JSON.stringify(data)}</p>
+        <p>Error: {String(error)}</p>
+        <button onClick={fetchData}>Fetching new data</button>
+      </div>
+    </>
   );
 };
 

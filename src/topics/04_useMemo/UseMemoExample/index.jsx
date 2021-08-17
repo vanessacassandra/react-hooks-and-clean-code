@@ -14,11 +14,14 @@ const UseMemoExample = () => {
   };
 
   return (
-    <div>
-      Factorial of
-      <input type="number" value={number} onChange={onChange} />
-      is {factorial}
-    </div>
+    <>
+      <small>src/topics/04_useMemo/UseMemoExample/index.js</small>
+      <div>
+        Factorial of
+        <input type="number" value={number} onChange={onChange} />
+        is {factorial}
+      </div>
+    </>
   );
 };
 

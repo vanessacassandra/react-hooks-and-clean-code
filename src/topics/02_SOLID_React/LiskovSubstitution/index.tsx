@@ -14,7 +14,12 @@ const User = ({ name, address }: IUser) => {
 };
 
 const LiskovSubstitution = () => {
-  return <User name="John" address="11th Avenue" />;
+  return (
+    <>
+      <small>src/topics/02_SOLID_React/LiskovSubstitution/index.tsx</small>
+      <User name="John" address="11th Avenue" />
+    </>
+  );
 };
 
 export default LiskovSubstitution;

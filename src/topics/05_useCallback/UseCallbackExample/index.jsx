@@ -19,6 +19,7 @@ const UseCallbackExample = () => {
 
   return (
     <>
+      <small>src/topics/05_useCallback/UseCallbackExample/index.js</small>
       <CalculateFactorial number={number} onChange={onNumberChange} onClick={logNumber} />
       <br />
 

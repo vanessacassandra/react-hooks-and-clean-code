@@ -12,11 +12,14 @@ const UseContextExample = () => {
   const value = { name, setName, address, setAddress };
 
   return (
-    <UserContext.Provider value={value}>
-      <Person />
-      <Address />
-      <Display />
-    </UserContext.Provider>
+    <>
+      <small>src/topics/07_useContext/UseContextExample/index.js</small>
+      <UserContext.Provider value={value}>
+        <Person />
+        <Address />
+        <Display />
+      </UserContext.Provider>
+    </>
   );
 };
 

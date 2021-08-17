@@ -20,6 +20,7 @@ const UseEffectExample = () => {
 
   return (
     <div>
+      <small>src/topics/03_BasicHooks/UseEffectExample/index.js</small>
       <div>Window width: {windowSize.width}</div>
       <div>Window height: {windowSize.height}</div>
     </div>

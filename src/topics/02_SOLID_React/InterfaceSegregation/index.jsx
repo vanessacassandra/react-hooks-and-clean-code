@@ -11,9 +11,10 @@ const InterfaceSegregation = () => {
   };
 
   return (
-    <div>
+    <>
+      <small>src/topics/02_SOLID_React/InterfaceSegregation/index.jsx</small>
       <User details={userDetails} />
-    </div>
+    </>
   );
 };
 
