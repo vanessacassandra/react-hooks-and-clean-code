@@ -1,13 +1,15 @@
-import React from "react";
-import { useFetch } from "./useFetch";
-
-import "../../../index.css";
-
+import React, { useEffect, useState } from "react";
 
 const REMOTE_URL = "https://jsonplaceholder.typicode.com/users";
 
 const DependencyInversion = () => {
-  const users = useFetch(REMOTE_URL);
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    fetch(REMOTE_URL)
+      .then((res) => res.json())
+      .then((data) => setUsers(data));
+  }, []);
 
   return (
     <>
