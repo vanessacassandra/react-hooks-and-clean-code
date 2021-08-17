@@ -5,6 +5,7 @@ import HocExample from "./HocExample";
 const OpenClosedPrinciple = () => {
   return (
     <>
+      <small>src/topics/02_SOLID_React/OpenClosedPrinciple/index.jsx</small>
       <h2>Higher Order Component example</h2>
       <HocExample />
       <h2>Compound Component example</h2>
