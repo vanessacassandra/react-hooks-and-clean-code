@@ -7,11 +7,11 @@ const AccordionContainer = styled.div`
   cursor: pointer;
 `;
 
-const AccordionItem = ({ children, activeItem, setToggle, value }) => {
+const AccordionItem = ({ children, activeItem, setToggle, title }) => {
   return (
     <AccordionContainer>
-      <div onClick={() => setToggle(value)}>{children}</div>
-      {activeItem === value && <div>The details for {children}</div>}
+      <div onClick={() => setToggle(title)}>{children}</div>
+      {activeItem === title && <div>The details for {children}</div>}
     </AccordionContainer>
   );
 };
