@@ -18,8 +18,7 @@ const UseMemoExample = () => {
       <small>src/topics/04_useMemo/UseMemoExample/index.js</small>
       <div>
         Factorial of
-        <input type="number" value={number} onChange={onChange} />
-        is {factorial}
+        <input type="number" value={number} onChange={onChange} /> is {factorial}
       </div>
     </>
   );

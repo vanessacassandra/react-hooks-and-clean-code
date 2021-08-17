@@ -41,6 +41,7 @@ const UseLayoutEffectExample = () => {
 
   return (
     <div>
+      <small>src/topics/08_useLayoutEffect/UseLayoutEffectExample/index.jsx</small>
       <h2>Example 1:</h2>
       <span>Value: {value} </span>
       <button onClick={() => setValue(0)}>Randomize</button>
