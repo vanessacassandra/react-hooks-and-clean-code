@@ -7,7 +7,7 @@ Presentation slides: https://react-hooks-clean-code.vercel.app/
 ### Installation
 
 ```
-npm i
+npm install
 ```
 
 ### Starting the application
